@@ -2,12 +2,10 @@
 
 set -e
 
-rm -rf ${0}.tmp
-mkdir ${0}.tmp
+rm -rf tmp
+cp -R res tmp
 
-cp -R ${0}.res/* ${0}.tmp/
-
-cd ${0}.tmp
+cd tmp
 
 # RSA + SHA256 sign
 

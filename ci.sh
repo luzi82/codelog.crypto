@@ -2,4 +2,6 @@
 
 set -e
 
-./openssl.sh
+pushd openssl
+./test.sh
+popd
