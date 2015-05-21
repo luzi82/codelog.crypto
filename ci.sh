@@ -12,3 +12,4 @@ function t {
 }
 
 t openssl
+t cryptopp

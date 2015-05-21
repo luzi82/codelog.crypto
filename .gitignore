@@ -1,4 +1,5 @@
 /.project
+/cryptopp/tmp/
 /openssl.sh.tmp/
 /openssl/tmp/
 /tmp/
