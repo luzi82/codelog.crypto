@@ -5,7 +5,7 @@ set -e
 rm -rf ${0}.tmp
 mkdir ${0}.tmp
 
-cp data.jpg ${0}.tmp/
+cp -R ${0}.res/* ${0}.tmp/
 
 cd ${0}.tmp
 
