@@ -35,3 +35,14 @@ openssl dgst -sha256 -verify public.der -keyform DER -signature data.jpg.der.sig
 
 # diff sign
 diff data.jpg.pem.sig data.jpg.der.sig
+
+
+# openssl lib
+g++ -o c000 c000.cpp -lcrypto
+./c000
+xxd -p -c 99 data.jpg.c000 > data.jpg.c000.hex
+
+sha256sum -b data.jpg | head -c 64 > data.jpg.sha256.bin
+echo >> data.jpg.sha256.bin # append newline
+
+diff data.jpg.c000.hex data.jpg.sha256.bin
