@@ -46,3 +46,7 @@ sha256sum -b data.jpg | head -c 64 > data.jpg.sha256.bin
 echo >> data.jpg.sha256.bin # append newline
 
 diff data.jpg.c000.hex data.jpg.sha256.bin
+
+
+g++ -o c001 c001.cpp -lcrypto
+./c001
