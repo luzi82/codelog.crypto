@@ -17,7 +17,7 @@ int main()
  
  // With the current version of Crypto++, MessageEnd() needs to be called
  // explicitly because Base64Encoder doesn't flush its buffer on destruction.
- Base64Encoder privkeysink(new FileSink("privkey.txt"));
+ Base64Encoder privkeysink(new FileSink("privkey.txt"),false);
  privkey.DEREncode(privkeysink);
  privkeysink.MessageEnd();
  
@@ -25,7 +25,7 @@ int main()
  // possibly because we will be sending the public key to a third party.
  RSAFunction pubkey(privkey);
  
- Base64Encoder pubkeysink(new FileSink("pubkey.txt"));
+ Base64Encoder pubkeysink(new FileSink("pubkey.txt"),false);
  pubkey.DEREncode(pubkeysink);
  pubkeysink.MessageEnd();
 }
