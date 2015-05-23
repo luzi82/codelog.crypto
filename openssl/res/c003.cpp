@@ -41,6 +41,7 @@ int main()
 	
 	BIO* public_pem_bio=NULL;
 	public_pem_bio = BIO_new_mem_buf(public_pem_buf,public_pem_buf_len);
+	BIO_set_close(public_pem_bio, BIO_NOCLOSE);
 	
 	RSA * public_rsa = NULL;
 	public_rsa = PEM_read_bio_RSA_PUBKEY(public_pem_bio, NULL, NULL, NULL);
@@ -48,6 +49,8 @@ int main()
 		printf("public_rsa==NULL\n");
 		return 4;
 	}
+
+	BIO_free(public_pem_bio);
 	
 	ifp = fopen("data.jpg.pem.sig","rb");
 	if(ifp==NULL){
