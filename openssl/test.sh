@@ -36,6 +36,9 @@ openssl dgst -sha256 -verify public.der -keyform DER -signature data.jpg.der.sig
 # diff sign
 diff data.jpg.pem.sig data.jpg.der.sig
 
+# more sign to do some test
+openssl dgst -sha256 -sign private.der -keyform DER -binary -out c002.cpp.sig c002.cpp
+
 
 # openssl lib
 g++ -o c000 c000.cpp -lcrypto
@@ -50,3 +53,9 @@ diff data.jpg.c000.hex data.jpg.sha256.bin
 
 g++ -o c001 c001.cpp -lcrypto
 ./c001
+
+g++ -o c002 c002.cpp -lcrypto
+./c002
+
+g++ -o c003 c003.cpp -lcrypto
+./c003
