@@ -51,6 +51,7 @@ int main()
 	}
 
 	BIO_free(public_pem_bio);
+	public_pem_bio = NULL;
 	
 	ifp = fopen("data.jpg.pem.sig","rb");
 	if(ifp==NULL){
