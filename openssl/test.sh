@@ -70,3 +70,13 @@ openssl aes-128-cbc -d -in data.jpg.enc -out data.jpg.enc.dec \
  -iv fedcba9876543210fedcba9876543210
 
 diff data.jpg data.jpg.enc.dec
+
+g++ -o c004 c004.cpp -lcrypto
+./c004
+
+diff data.jpg.enc data.jpg.enc.1
+
+g++ -o c005 c005.cpp -lcrypto
+./c005
+
+diff data.jpg data.jpg.enc.dec.1
