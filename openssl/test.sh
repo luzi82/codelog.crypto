@@ -59,3 +59,14 @@ g++ -o c002 c002.cpp -lcrypto
 
 g++ -o c003 c003.cpp -lcrypto
 ./c003
+
+
+openssl aes-128-cbc -in data.jpg -out data.jpg.enc \
+ -K  0123456789abcdef0123456789abcdef \
+ -iv fedcba9876543210fedcba9876543210
+
+openssl aes-128-cbc -d -in data.jpg.enc -out data.jpg.enc.dec \
+ -K  0123456789abcdef0123456789abcdef \
+ -iv fedcba9876543210fedcba9876543210
+
+diff data.jpg data.jpg.enc.dec
