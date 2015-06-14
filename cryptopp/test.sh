@@ -27,3 +27,7 @@ openssl aes-128-cbc -in data.jpg -out data.jpg.openssl-aes \
 g++ c004.cpp -lcryptopp -o c004
 ./c004
 diff data.jpg data.jpg.openssl-aes.-
+
+g++ c005.cpp -lcryptopp -o c005
+./c005
+rm -rf tmp
