@@ -31,3 +31,7 @@ diff data.jpg data.jpg.openssl-aes.-
 g++ c005.cpp -lcryptopp -o c005
 ./c005
 rm -rf tmp
+
+g++ c006.cpp -lcryptopp -o c006
+./c006
+rm -rf tmp
