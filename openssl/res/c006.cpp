@@ -1,4 +1,4 @@
-// Test the BIO_eof behavior on BIO_new_file
+// test BIO_new_file
 
 #include <openssl/sha.h>
 #include <openssl/bio.h>
@@ -15,10 +15,13 @@ int main()
 	unsigned char* buffer[4096];
 
     FILE* out = fopen("data.jpg.c006", "wb");
-    while(!BIO_eof(fileBio)){
+    // warning: do not use BIO_eof
+    while(true){
     	int len=BIO_read(fileBio,buffer,1000);
     	if(len>0){
     		fwrite(buffer, 1, len, out);
+    	}else if(len==0){
+    		break;
     	}else{
     		return 1;
     	}

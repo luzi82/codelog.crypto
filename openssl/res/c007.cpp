@@ -1,4 +1,4 @@
-// test bio
+// test BIO_f_cipher
 
 #include <openssl/sha.h>
 #include <openssl/bio.h>
@@ -22,11 +22,7 @@ int main()
 	unsigned char* buffer[4096];
 
     FILE* out = fopen("data.jpg.enc.-.c007", "wb");
-    // WARNING: DO NOT USE BIO_eof
-    // BIO_eof of BIO_f_cipher is buggy
-    // BIO_f_cipher contains 4096 buffer
-    // when it consume all fileBio but buffer not use up
-    // BIO_eof will return 1
+    // warning: do not use BIO_eof
     while(true){
     	int len=BIO_read(cipherBio,buffer,4096);
     	if(len>0){
