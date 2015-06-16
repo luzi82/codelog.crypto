@@ -80,3 +80,11 @@ g++ -o c005 c005.cpp -lcrypto
 ./c005
 
 diff data.jpg data.jpg.enc.dec.1
+
+g++ -o c006 c006.cpp -lcrypto
+./c006
+diff data.jpg data.jpg.c006
+
+g++ -o c007 c007.cpp -lcrypto
+./c007
+diff data.jpg data.jpg.enc.-.c007
