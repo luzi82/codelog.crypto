@@ -88,3 +88,9 @@ diff data.jpg data.jpg.c006
 g++ -o c007 c007.cpp -lcrypto
 ./c007
 diff data.jpg data.jpg.enc.-.c007
+
+g++ -o c008 c008.cpp -lcrypto
+./c008
+diff data.jpg data.jpg.enc.-.c008
+
+echo ${0} OK
