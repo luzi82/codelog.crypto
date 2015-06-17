@@ -93,4 +93,8 @@ g++ -o c008 c008.cpp -lcrypto
 ./c008
 diff data.jpg data.jpg.enc.-.c008
 
+g++ -o c009 c009.cpp -lcrypto
+./c009
+diff data.0.c009 data.1.c009 && exit 1 # the files are different
+
 echo ${0} OK
