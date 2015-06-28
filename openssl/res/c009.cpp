@@ -13,7 +13,7 @@ int t_write(BIO *b, const char *in, int inl){
 }
 
 int t_read(BIO *b, char *out, int outl){
-	printf("t_read %d\n",outl);
+	//printf("t_read %d\n",outl);
 	return BIO_read(b->next_bio, out, outl);
 }
 
