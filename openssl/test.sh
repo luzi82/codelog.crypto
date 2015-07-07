@@ -112,4 +112,9 @@ g++ -o c012 c012.cpp -lcrypto
 ./c012
 diff data.0.c012 data.1.c012
 
+echo "test c013"
+g++ -o c013 c013.cpp -lcrypto
+./c013
+diff data.0.c013 data.1.c013 && exit 1 # the files are different
+
 echo ${0} OK
