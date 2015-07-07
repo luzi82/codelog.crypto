@@ -93,6 +93,7 @@ int main()
     BIO_read(cipherBio,buffer,BIO_pending(cipherBio));
     printf("FTiUTcPD BIO_pending %d, BIO_tell %d\n",BIO_pending(cipherBio),BIO_tell(cipherBio));
     BIO_read(cipherBio,buffer,16); // IMPORTANT
+    printf("qpwfGwqj BIO_pending %d, BIO_tell %d\n",BIO_pending(cipherBio),BIO_tell(cipherBio));
 	int len=BIO_read(cipherBio,buffer,100);
 	if(len!=100){
 		printf("yRWvFwNc len %d\n",len);
