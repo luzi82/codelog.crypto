@@ -122,4 +122,9 @@ g++ -o c014 c014.cpp -lcrypto
 ./c014
 diff data.0.c014 data.1.c014
 
+echo "test c015"
+g++ -o c015 c015.cpp -lcrypto
+./c015
+diff data.0.c015 data.1.c015
+
 echo ${0} OK
