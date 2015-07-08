@@ -90,6 +90,10 @@ int main()
     printf("aURgytqs BIO_pending %d, BIO_tell %d\n",BIO_pending(cipherBio),BIO_tell(cipherBio));
     BIO_read(cipherBio,buffer,435);
     printf("UdLUKkLB BIO_pending %d, BIO_tell %d\n",BIO_pending(cipherBio),BIO_tell(cipherBio));
+	if(BIO_pending(cipherBio)!=4096-16-435){
+		printf("kHVCCTwa BIO_pending(cipherBio) %d\n",BIO_pending(cipherBio));
+		return 1;
+	}
     BIO_read(cipherBio,buffer,BIO_pending(cipherBio));
     printf("FTiUTcPD BIO_pending %d, BIO_tell %d\n",BIO_pending(cipherBio),BIO_tell(cipherBio));
     BIO_read(cipherBio,buffer,16); // IMPORTANT
