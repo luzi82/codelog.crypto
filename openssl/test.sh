@@ -89,10 +89,12 @@ g++ -o c007 c007.cpp -lcrypto
 ./c007
 diff data.jpg data.jpg.enc.-.c007
 
+echo "test c008"
 g++ -o c008 c008.cpp -lcrypto
 ./c008
 diff data.jpg data.jpg.enc.-.c008
 
+echo "test c009"
 g++ -o c009 c009.cpp -lcrypto
 ./c009
 diff data.0.c009 data.1.c009 && exit 1 # the files are different
@@ -131,5 +133,9 @@ echo "test c016"
 g++ -o c016 c016.cpp -lcrypto
 ./c016
 diff data.0.c016 data.1.c016 && exit 1 # the files are different
+
+echo "test c017"
+g++ -o c017 c017.cpp -lcrypto
+./c017
 
 echo ${0} OK

@@ -1,4 +1,4 @@
-// custom BIO
+// test free and free_all
 
 #include <openssl/sha.h>
 #include <openssl/bio.h>
@@ -49,8 +49,11 @@ int t_new(BIO *bi){
 	return 1;
 }
 
+int free_called = 0;
+
 int t_free(BIO *a){
 	printf("t_free\n");
+	++free_called;
 	return 1;
 }
 
@@ -83,25 +86,43 @@ int main()
 	BIO_push(cipherBio,tBio);
 	BIO_push(tBio,fileBio);
 
-	unsigned char* buffer[4096];
-
-    FILE* out = fopen("data.jpg.enc.-.c008", "wb");
-    // warning: do not use BIO_eof
-    while(true){
-    	//printf("BIO_read\n");
-    	int len=BIO_read(cipherBio,buffer,4096);
-    	if(len>0){
-    		fwrite(buffer, 1, len, out);
-    	}else if(len==0){
-    		break;
-    	}else{
-    		printf("len %d\n",len);
-    		return 1;
-    	}
-    }
     BIO_free(cipherBio);
 
-    fclose(out);
+	if(free_called!=0){
+		printf("free_called!=0\n");
+		return 1;
+	}
+	
+	BIO_free(tBio);
+
+	if(free_called!=1){
+		printf("free_called!=1\n");
+		return 1;
+	}
+
+	BIO_free(fileBio);
+
+	if(free_called!=1){
+		printf("free_called!=1\n");
+		return 1;
+	}
+
+	fileBio=BIO_new_file(inFilename,"rb");
+	tBio=BIO_new(&methods_t);
+	cipherBio = BIO_new(BIO_f_cipher ());
+	BIO_set_cipher (cipherBio, EVP_aes_128_cbc (), key, iv, 0);
+	
+	BIO_push(cipherBio,tBio);
+	BIO_push(tBio,fileBio);
+	
+	free_called = 0;
+	
+	BIO_free_all(cipherBio);
+	
+	if(free_called!=1){
+		printf("free_called!=1\n");
+		return 1;
+	}
 
     return 0;
 }
